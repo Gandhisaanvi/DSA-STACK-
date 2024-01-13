@@ -1,0 +1,106 @@
+class Queue {
+
+    // Define the data members(if any) here.
+
+    stack<int> st1;
+
+    stack<int> st2;
+
+    public:
+
+ 
+
+    void enQueue(int val) {
+
+        // Implement the enqueue() function.
+
+        st1.push(val);
+
+    }
+
+ 
+
+    int deQueue() {
+
+        // Implement the dequeue() function.
+
+        if(st1.empty() && st2.empty()) return -1;
+
+        if(!st2.empty()){
+
+            int ele = st2.top();
+
+            st2.pop();
+
+            return ele;
+
+        }
+
+        else{
+
+            while(!st1.empty()){
+
+                st2.push(st1.top());
+
+                st1.pop();
+
+            }
+
+            int ele = st2.top();
+
+            st2.pop();
+
+            return ele;
+
+        }
+
+    }
+
+ 
+
+    int peek() {
+
+        // Implement the peek() function here.
+
+        if(st1.empty() && st2.empty()) return -1;
+
+        if(!st2.empty()){
+
+            int ele = st2.top();
+
+            return ele;
+
+        }
+
+        else{
+
+            while(!st1.empty()){
+
+                st2.push(st1.top());
+
+                st1.pop();
+
+            }
+
+            int ele = st2.top();
+
+            return ele;
+
+        }
+
+    }
+
+ 
+
+    bool isEmpty() {
+
+        // Implement the isEmpty() function here.
+
+        if(st1.empty() && st2.empty()) return true;
+
+        return false;
+
+    }
+
+};
+
