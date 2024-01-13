@@ -1,0 +1,44 @@
+class Stack // SO WE ARE USING STACK FUNCTIONS TO FOR SINGLE QUEUE 
+            // Q1=[]
+
+{
+
+	queue<int>q1;//Q1
+
+   public:
+    Stack() {
+        
+    }
+
+    int getSize() {
+       return q1.size();//4
+    }
+
+    bool isEmpty() {
+        if(q1.empty())return -1;//-1
+        else return 0;
+    }
+
+    void push(int element) {
+        q1.push(element);//push(1)push(2)push(3)push(4)
+        for(int i=0; i<q1.size()-1;i++)
+        {
+            q1.push(q1.front());//4321
+            q1.pop();
+        }
+    }
+
+    int pop() 
+    {
+        if(q1.empty())return -1;
+        int z=q1.front();
+        q1.pop();
+        return z;
+        
+    }
+
+    int top() {
+        if(q1.empty())return -1;
+        return q1.front();
+    }
+};
