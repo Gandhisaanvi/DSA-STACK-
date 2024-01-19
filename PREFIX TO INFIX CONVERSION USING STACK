@@ -1,0 +1,22 @@
+string prefixToInfixConversion(string &s)
+{
+	int n=s.length();
+	stack<string>st;
+	for(int i =n-1;i>=0;i--)
+	{
+		string op="";
+		char ch= s[i];
+		op=op+ch;
+		if((ch>='A'&& ch<='Z')||(ch>='a'&& ch<='z'))
+		{
+                st.push(op);
+                } else {
+                string a = st.top();
+                st.pop();
+                string b = st.top();
+                st.pop();
+                st.push("(" + a + op+ b + ")");
+                }
+        }
+        return st.top();
+}
